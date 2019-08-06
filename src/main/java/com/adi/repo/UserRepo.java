@@ -6,9 +6,10 @@ package com.adi.repo;
 import com.adi.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface UserRepo extends JpaRepository<User,Integer>
 {
-    @Query("select u from User u where u.email =email")
-    User findByEmailAddress(String email);
+    @Query("select u.name from User u where u.email = :emailaddress")
+    String findByEmailAddress(@Param("emailaddress") String emailaddress);
 }

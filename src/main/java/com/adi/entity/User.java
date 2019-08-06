@@ -4,21 +4,19 @@ package com.adi.entity;
  * @created: 05/08/19
  */
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /*
  * @author: aditya10.kumar
  * @created: 05/08/19
  */
 @Entity
+@Table(name = "User")
 public class User extends AbstractEntity {
 
     @Id
-    private Integer     id;
-    private Integer name;
+    private Integer id;
+    private String name;
     @Column(unique = true)
     private String email;
 
@@ -30,11 +28,11 @@ public class User extends AbstractEntity {
         this.id = id;
     }
 
-    public Integer getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Integer name) {
+    public void setName(String name) {
         this.name = name;
     }
 
